@@ -31,8 +31,8 @@
   .counter {
     font-size: 2em;
     font-weight: bold;
-    background: #333;
-    color: white;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
     padding: 10px;
     display: inline-block;
     border-radius: 5px;
