@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Meu Contador de Tempo</h1>
+
+  <!-- Carrossel de imagens -->
+  <div class="carousel">
+    <img [src]="images[currentImage]" alt="Carrossel de Imagens">
+  </div>
+
+  <p class="subtitle">Acompanhe o tempo desde o início do ano!</p>
+
+  <!-- Contador de tempo -->
+  <div class="counter">
+    <p>{{ timeElapsed }}</p>
+  </div>
+
+  <!-- Player de música -->
+  <audio controls>
+    <source src="assets/music.mp3" type="audio/mp3">
+    Seu navegador não suporta o player de áudio.
+  </audio>
+</div>
