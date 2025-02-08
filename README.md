@@ -57,3 +57,17 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+--------------------------------------------
+
+para gerar a pasta docs e ser acesado pelo git pages 
+
+```bash
+ng build --output-path docs --base-href /PROJETMARIA/
+```
+
+para gerar a porta que pode ser acessada pelo celular 
+
+```bash
+ng serve --host 0.0.0.0 --disable-host-check
+```

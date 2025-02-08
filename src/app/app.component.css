@@ -1,44 +1,74 @@
-
 .container {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    padding: 20px;
-  }
-  
-  h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  
-  .carousel {
-    width: 300px;
-    height: 200px;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  
-  .carousel img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-  }
-  
-  .subtitle {
-    font-size: 1.2em;
-    margin: 20px 0;
-  }
-  
-  .counter {
-    font-size: 2em;
-    font-weight: bold;
-    background: #ffffff;
-    color: rgb(0, 0, 0);
-    padding: 10px;
-    display: inline-block;
-    border-radius: 5px;
-  }
-  
-  audio {
-    margin-top: 20px;
-  }
-  
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  height: 100%;
+  height: 100%;
+  background-color: rgb(29, 29, 29);
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.swiper {
+  width: 95%;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+}
+
+.subtitle {
+  font-size: 1.2em;
+  margin: 20px 0;
+  color: white;
+}
+
+.counter {
+  font-size: 2em;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+audio {
+  width: 100%; /* Largura do player */
+  max-width: 300px; /* Largura máxima */
+  margin-top: 20px;
+  background-color: #f0f0f0; /* Cor de fundo */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #f0f0f0; /* Cor de fundo dos controles */
+  border-radius: 10px; /* Bordas arredondadas dos controles */
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: rgba(248, 50, 47, 0.836);
+  border-radius: 50%; /* Botões redondos */
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: #333; /* Cor do texto de tempo */
+  font-size: 14px; /* Tamanho da fonte */
+}
