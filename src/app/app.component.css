@@ -46,7 +46,14 @@ h1 {
   padding: 10px;
   display: inline-block;
   border-radius: 5px;
+
+ 
 }
+
+#time{
+  margin-top: -23px;
+}
+
 
 audio {
   width: 100%; /* Largura do player */

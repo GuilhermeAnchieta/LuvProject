@@ -51,9 +51,11 @@ export class AppComponent implements OnInit {
     const remainingWeeks = Math.floor(remainingDays / 7); // Semanas restantes após calcular os anos
     const finalDays = remainingDays % 7; // Dias restantes após calcular as semanas
 
-    // Formata o tempo decorrido
-    this.timeElapsed = `${years} anos, ${remainingWeeks} semanas, ${finalDays}d ${hours}h ${minutes}m ${seconds}s`;
-  }
+    // Formata o tempo decorrido, ocultando os anos se for zero
+    let timeString = years > 0 ? `${years} anos, ` : "";
+    timeString += `${remainingWeeks} semanas, ${finalDays}d ${hours}h ${minutes}m ${seconds}s`;
 
+    this.timeElapsed = timeString;
+  }
 }
 
