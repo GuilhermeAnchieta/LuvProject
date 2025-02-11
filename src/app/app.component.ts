@@ -16,7 +16,7 @@ import 'swiper/css/pagination';
 export class AppComponent implements OnInit {
   title = 'ProjetoMaria';
 
- 
+
 
   currentImage: number = 0;
   timeElapsed: string = '';
@@ -24,14 +24,15 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.updateTimer();
     setInterval(() => this.updateTimer(), 1000);
-    // init Swiper:
+  }
+
+  ngAfterViewInit() {
     const swiper = new Swiper('.mySwiper', {
       effect: 'cards', // Ativa o efeito de cartas
       grabCursor: true, // Mostra o cursor de "agarrar" ao passar o mouse
       modules: [EffectCards], // Carrega o módulo de efeito de cartas
     });
   }
-
 
   updateTimer() {
     const startDate = new Date('2025-01-01T00:15:00');
