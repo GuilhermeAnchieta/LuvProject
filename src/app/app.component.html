@@ -27,8 +27,20 @@
   </div>
 
   <!-- Player de música -->
-  <audio controls >
-    <source src="assets/Eternal Sunshine.mp3" type="audio/mp3">
-    Seu navegador não suporta o player de áudio.
-  </audio>
+  <div class="player-container">
+
+    <button (click)="playSound()" [disabled]="isPlaying"><img class="img "src="assets/play.png"></button>
+    <button (click)="pauseSound()" [disabled]="!isPlaying"><img class="img "src="assets/pausa.png"></button>
+    <button (click)="stopSound()"><img class="img "src="assets/seta.png"></button>
+  
+    <!-- Barra de Progresso -->
+    <input type="range" 
+           [max]="duration" 
+           [value]="currentTime" 
+           (input)="seek($event)" 
+           class="progress-bar">
+  
+    <!-- Tempo Atual -->
+    <!-- <p>{{ currentTime | number:'1.0-0' }}s / {{ duration | number:'1.0-0' }}s</p> -->
+  </div>
 </div>

@@ -2,7 +2,7 @@
   text-align: center;
   font-family: Arial, sans-serif;
   padding: 20px;
-  height: 100vh;
+  height: 100%;
   background-color: rgb(29, 29, 29);
 }
 
@@ -76,28 +76,97 @@ h1 {
   margin-top: -23px;
 }
 
+.player-container {
 
-audio {
-  width: 100%; /* Largura do player */
-  max-width: 300px; /* Largura máxima */
+  align-items: center;
+  padding: 15px;
+  border-radius: 10px;
+
+}
+
+
+
+button {
+  margin-left: 30px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+
+   
+  .img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: #ddd;
+}
+
+button:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+ 
+
+
+  
+
+.progress-bar {
+  width: 100%;
+  appearance: none;
+  height: 6px;
+  background: rgb(253, 253, 253)fff;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Estilizando o "thumb" da barra (a bolinha que desliza) */
+.progress-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: red; /* Cor personalizada da bolinha */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.progress-bar::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: red; /* Cor personalizada da bolinha */
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* audio {
+  width: 100%; 
+  max-width: 300px;
   margin-top: 20px;
-  background-color: #f0f0f0; /* Cor de fundo */
-  border-radius: 10px; /* Bordas arredondadas */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  background-color: #f0f0f0;  
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 audio::-webkit-media-controls-panel {
-  background-color: #f0f0f0; /* Cor de fundo dos controles */
-  border-radius: 10px; /* Bordas arredondadas dos controles */
+  background-color: #f0f0f0; 
+  border-radius: 10px; 
 }
 
 audio::-webkit-media-controls-play-button {
   background-color: rgba(248, 50, 47, 0.836);
-  border-radius: 50%; /* Botões redondos */
+  border-radius: 50%;
 }
 
 audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display {
-  color: #333; /* Cor do texto de tempo */
-  font-size: 14px; /* Tamanho da fonte */
-}
+  color: #333;
+  font-size: 14px; 
+} */

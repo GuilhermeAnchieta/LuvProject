@@ -1,28 +1,50 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import Swiper from 'swiper'; // Importação do Swiper
 import { EffectCards, Navigation, Pagination } from 'swiper/modules'; // Módulos específicos para o efeito de cartas, navegação e paginação
 import 'swiper/css'; // Estilo base do Swiper
 import 'swiper/css/effect-cards'; // Estilo específico para o efeito de cartas
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Howl } from 'howler';
+
 
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports: [
+    CommonModule
+  ]
 })
 export class AppComponent implements OnInit {
   title = 'ProjetoMaria';
-
-
+  sound: Howl;
+  isPlaying: boolean = false;
+  duration: number = 0;
+  currentTime: number = 0;
+  interval: any;
+  
+  constructor() {
+    this.sound = new Howl({
+      src: ['assets/Eternal Sunshine.mp3'], // Arquivo na pasta assets
+      html5: true,
+      onload: () => {
+        this.duration = this.sound.duration(); // Pega a duração da música
+      }
+    });
+  } 
 
   currentImage: number = 0;
   timeElapsed: string = '';
 
   ngOnInit() {
     this.updateTimer();
+    this.updateMusicTime();
     setInterval(() => this.updateTimer(), 1000);
   }
 
@@ -33,6 +55,39 @@ export class AppComponent implements OnInit {
       modules: [EffectCards], // Carrega o módulo de efeito de cartas
     });
   }
+  playSound() {
+    this.sound.play();
+    this.isPlaying = true;
+    this.updateMusicTime();
+  }
+
+  pauseSound() {
+    this.sound.pause();
+    this.isPlaying = false;
+    clearInterval(this.interval);
+  }
+
+  stopSound() {
+    this.sound.stop();
+    this.isPlaying = false;
+    this.currentTime = 0;
+    clearInterval(this.interval);
+  }
+
+  updateMusicTime() {
+    this.interval = setInterval(() => {
+      if (this.sound.playing()) {
+        this.currentTime = this.sound.seek() as number;
+      }
+    }, 1000);
+  }
+
+  seek(event: any) {
+    const newTime = event.target.value;
+    this.sound.seek(newTime);
+    this.currentTime = newTime;
+  }
+
 
   updateTimer() {
     const startDate = new Date('2025-01-01T00:15:00');
@@ -57,6 +112,9 @@ export class AppComponent implements OnInit {
     timeString += `${remainingWeeks} semanas, ${finalDays}d ${hours}h ${minutes}m ${seconds}s`;
 
     this.timeElapsed = timeString;
+  }
+  ngOnDestroy() {
+    clearInterval(this.interval);
   }
 }
 
